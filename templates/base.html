@@ -7,6 +7,10 @@
 <body>
 
 <h1>My first flask site!</h1>
+<ul>
+    <li><a href="{{ url_for('index') }}">Main</a></li>
+    <li><a href="{{ url_for('contacts') }}">Contacts</a></li>
+</ul>
 {% block content %}
 <!-- весь контент сайта будет находиться туть -->
 {% endblock %}
