@@ -5,4 +5,28 @@
     <p style="color: #b01fbc">Это страница контакты!</p>
     <p style="color: #417e6a">Это телефон Демида: +375 29 294 3414 <img src="static/icon_call.png" alt="" width="30" height="30"></p>
 
+
+ <form action="" method="post">
+        <label for="f_name">Ваше имя:
+            <input type="text" id="f_name" name="name">
+        </label><br>  <!-- br - break rule - перенос строки -->
+        <label for="l_name">Ваша фамилия:
+            <input type="text" id="l_name" name="surname">
+        </label><br>
+        <label for="phone">Ваш номер телефона:
+            <input type="tel" id="phone" name="p_num">
+        </label><br>
+
+        <input type="submit" value="Отправить">  <!-- поле отправки формы -->
+    </form>
+
+    {% if user %} <!-- если в переменной user что-то есть -->
+        <!-- отображаю его данные на странице -->
+        <h1>Привет, {{ user['name'] }} {{ user['surname'] }}</h1>
+        <p>{{ user['phone'] }}</p>
+    {% else %}  <!-- если данные не передали -->
+        <h1>Заполни форму!</h1>  <!-- отображаем эту запись -->
+    {% endif %}
+
+
 {% endblock %}
