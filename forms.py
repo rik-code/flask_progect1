@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 
 
-class LoginForm(FlaskForm):  # строю форму на основе класса FlaskForm (наследую)
+class LoginForm(FlaskForm):  # Строю форму на основе класса FlaskForm (наследую)
     username = StringField('Имя пользователя: ', validators=[DataRequired])
     password = PasswordField('Пароль: ', validators=[DataRequired])
     remember_me = BooleanField('Запомнить меня')

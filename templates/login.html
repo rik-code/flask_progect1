@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Логин</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}  <!-- подключаю токен формы -->
+        <p>
+            {{ form.username.label }}<br>  <!-- подпись к полю -->
+            {{ form.username }}  <!-- поле для ввода -->
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password }}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
