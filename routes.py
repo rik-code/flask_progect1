@@ -1,6 +1,6 @@
 from app import app
 from forms import LoginForm
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, flash
 
 
 @app.route('/')  # Что будет, если зайти на главную страницу сайта
@@ -35,7 +35,12 @@ def search():
         return render_template('search.html')
 
 
-@app.route('/login')  # Когда пользователь зашел на страницу логина
+@app.route('/login', methods=['GET', 'POST']) # Когда пользователь зашел на страницу логина
 def login():
     form = LoginForm()  # Создаю экземпляр формы
+    if form.validate_on_submit():  # Если форма отправлена
+        name = form.username.data
+        remember = form.remember_me.data
+        flash(f'На сайте вошел пользователь {name}, запомнить вход: {remember}')
+        return redirect(url_for('index'))  # Перенаправляет на главную страницу сайт
     return render_template('login.html', title='Войти', form=form)  # Передаю форму в шаблон

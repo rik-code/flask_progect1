@@ -2,6 +2,14 @@
 
 {% block content %}
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <p style="color: #3d84ae">Это контент главной страницы!</p>
 
 {% endblock %}
