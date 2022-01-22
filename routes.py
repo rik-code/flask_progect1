@@ -1,4 +1,5 @@
 from app import app
+from forms import LoginForm
 from flask import render_template, redirect, url_for, request
 
 
@@ -32,3 +33,9 @@ def search():
         return redirect(f'https://google.com/search?q={query}')
     else:
         return render_template('search.html')
+
+
+@app.route('/login')  # Когда пользователь зашел на страницу логина
+def login():
+    form = LoginForm()  # Создаю экземпляр формы
+    return render_template('login.html', title='Войти', form=form)  # Передаю форму в шаблон
