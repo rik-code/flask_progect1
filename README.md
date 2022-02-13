@@ -1,3 +1,3 @@
-# flask_progect1
+# flask_project_1
 Создаём проект на flask
 
